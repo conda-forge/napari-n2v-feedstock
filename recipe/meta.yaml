@@ -1,5 +1,5 @@
 {% set name = "napari-n2v" %}
-{% set version = "0.0.2" %}
+{% set version = "0.1.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/napari-n2v-{{ version }}.tar.gz
-  sha256: 476c39dd4ed66c99c2a0a76cba6a472090c253d4e4a9aa6648a0af409ed16400
+  sha256: 3e86a9c5c5f89e1ac0333acb1306bab13883218fed0cf4fe47094111cf7d3188
 
 build:
   noarch: python
@@ -32,6 +32,7 @@ requirements:
     - scikit-image
     - tensorflow
     - vispy <=0.9.6
+    - protobuf >=3.9.2,<3.20
 
 test:
   imports:
@@ -53,4 +54,4 @@ extra:
     - goanpeca
     - jaimergp
     - jdeschamps
-    - tomburke-rse 
+    - tomburke-rse
