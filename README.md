@@ -1,11 +1,11 @@
-About napari-n2v
-================
+About napari-n2v-feedstock
+==========================
+
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/napari-n2v-feedstock/blob/main/LICENSE.txt)
 
 Home: https://github.com/juglab/napari-n2v
 
 Package license: BSD-3-Clause
-
-Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/napari-n2v-feedstock/blob/main/LICENSE.txt)
 
 Summary: A self-supervised denoising algorithm now usable by all in napari.
 
