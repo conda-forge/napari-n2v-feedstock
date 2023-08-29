@@ -1,5 +1,5 @@
 {% set name = "napari-n2v" %}
-{% set version = "0.1.0" %}
+{% set version = "0.1.1" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/napari-n2v-{{ version }}.tar.gz
-  sha256: 3e86a9c5c5f89e1ac0333acb1306bab13883218fed0cf4fe47094111cf7d3188
+  sha256: 1beeafbf66c7f22930534b66ea9783f70b39d1c35a5171fe7910612235d92609
 
 build:
   noarch: python
