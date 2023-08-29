@@ -20,19 +20,15 @@ requirements:
     - python >=3.7
   run:
     - bioimageio.core
-    - imageio !=2.11.0,!=2.22.1,>=2.5.0
-    - magicgui
     - n2v >=0.3.2
-    - napari <=0.4.15
+    - napari
     - napari-time-slicer >=0.4.9
     - numpy
     - pyqtgraph
     - python >=3.7
     - qtpy
     - scikit-image
-    - tensorflow
-    - vispy <=0.9.6
-    - protobuf >=3.9.2,<3.20
+    - tensorflow >=2.10.0
 
 test:
   imports:
