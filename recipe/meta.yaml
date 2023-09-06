@@ -38,6 +38,7 @@ test:
     - pip check
   requires:
     - pip
+    - PyQt5
 
 about:
   home: https://github.com/juglab/napari-n2v
