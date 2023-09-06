@@ -29,16 +29,26 @@ requirements:
     - qtpy
     - scikit-image
     - tensorflow >=2.10.0
-
-test:
+  
+  # following napari-feedstock
+  run_constrained:
+    - pyside2 >=5.14.2,!=5.15.0
+    - pyqt >=5.12.3,!=5.15.0
+  
+test:  
+  requires:
+    - pip
+    - pyqt
   imports:
     - napari_n2v
   commands:
+    # following napari-feedstock
+    - setx QT_API "pyqt5"  # [win]
+    - export QT_API=pyqt5  # [unix]
     - pip list
     - pip check
-  requires:
-    - pip
-    - PyQt5
+    - QT_DEBUG_PLUGINS=1 LIBGL_DEBUG=verbose xvfb-run --auto-servernum napari --info || true  # [linux]
+
 
 about:
   home: https://github.com/juglab/napari-n2v
