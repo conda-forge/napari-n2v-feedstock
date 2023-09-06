@@ -1,5 +1,5 @@
 {% set name = "napari-n2v" %}
-{% set version = "0.1.0" %}
+{% set version = "0.1.1" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/napari-n2v-{{ version }}.tar.gz
-  sha256: 3e86a9c5c5f89e1ac0333acb1306bab13883218fed0cf4fe47094111cf7d3188
+  sha256: 1beeafbf66c7f22930534b66ea9783f70b39d1c35a5171fe7910612235d92609
 
 build:
   noarch: python
@@ -20,28 +20,35 @@ requirements:
     - python >=3.7
   run:
     - bioimageio.core
-    - imageio !=2.11.0,!=2.22.1,>=2.5.0
-    - magicgui
     - n2v >=0.3.2
-    - napari <=0.4.15
+    - napari
     - napari-time-slicer >=0.4.9
     - numpy
     - pyqtgraph
     - python >=3.7
     - qtpy
     - scikit-image
-    - tensorflow
-    - vispy <=0.9.6
-    - protobuf >=3.9.2,<3.20
-
-test:
+    - tensorflow >=2.10.0
+  
+  # following napari-feedstock
+  run_constrained:
+    - pyside2 >=5.14.2,!=5.15.0
+    - pyqt >=5.12.3,!=5.15.0
+  
+test:  
+  requires:
+    - pip
+    - pyqt
   imports:
     - napari_n2v
   commands:
+    # following napari-feedstock
+    - setx QT_API "pyqt5"  # [win]
+    - export QT_API=pyqt5  # [unix]
     - pip list
     - pip check
-  requires:
-    - pip
+    - QT_DEBUG_PLUGINS=1 LIBGL_DEBUG=verbose xvfb-run --auto-servernum napari --info || true  # [linux]
+
 
 about:
   home: https://github.com/juglab/napari-n2v
